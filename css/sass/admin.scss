@@ -1,0 +1,19 @@
+// admin.scss
+.expando-button-widget-admin {
+
+  label, input, textarea {
+    display: block;
+    width: 100%;
+    max-width: 100%;
+  }
+  .expando-button-uploader {
+    .button {
+      margin: 0.5em 0;
+      padding: 0.5em;
+      display: inline-block;
+      height: auto;
+      width: 100%;
+      text-align: center;
+    }
+  }
+}
