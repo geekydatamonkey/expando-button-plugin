@@ -4,9 +4,14 @@
   $instance_url = esc_url( $instance['url'] ); 
   $instance_img_url = esc_url( $instance['img_url'] );
   $instance_more_text = sanitize_text_field( $instance['more_text']);
+
+  $is_body_empty = !($instance_img_url || $instance_more_test);
 ?>
 
-<a href="<?php echo esc_url( $instance['url'] ); ?>" class="expando-button-widget expando-button-widget-<?php echo sanitize_html_class( $instance['button_name'] ); ?>" target="_blank">
+<a href="<?php echo esc_url( $instance['url'] ); ?>" class="expando-button-widget expando-button-widget-<?php echo sanitize_html_class( $instance['button_name'] ); ?> <?php 
+    if ($is_body_empty) 
+      echo "is-empty"; 
+  ?>" target="_blank">
     <div class="expando-button-widget-header"><?php
       if ($instance_button_name) {
         echo $instance_button_name;

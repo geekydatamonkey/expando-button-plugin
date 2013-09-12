@@ -6,14 +6,18 @@
     -moz-box-sizing: border-box;
   }
   border: 0.25em solid #ccc;
-  padding: 0.75em 1em;
+  padding: 0.5em 1em 1em;
   display: block;
   .expando-button-widget-header {
     display: block;
     //margin-bottom: 0.5em;
   }
-  &.is-closed .expando-button-widget-header {
-    margin: 0;
+  &.is-closed,
+  &.is-empty {
+    padding-bottom: 0.5em;
+    .expando-button-widget-header {
+      margin: 0;
+    }
   }
   .expando-button-widget-more-text {
     margin-top: 0.75em;
