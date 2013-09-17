@@ -1,13 +1,10 @@
-//
-
 /*!
  * expandoButton.js
  * Original author: @jimbobalj
  * Licensed under the MIT license
  */
- /*jshint devel:true */
 
-;(function ( $, window, document, undefined ) {
+;(function( $, window, document, undefined ) {
     "use strict";
 
     // Create the defaults once

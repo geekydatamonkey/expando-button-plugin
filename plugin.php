@@ -73,13 +73,13 @@ class ExpandoButton extends WP_Widget {
     // must be first for media js to work
     wp_enqueue_media();
     wp_enqueue_style('expando-button-plugin-admin', plugins_url('expando-button-plugin/css/admin.css') );
-    wp_enqueue_script('expando-button-admin', plugins_url('expando-button-plugin/js/dev/admin.js'), array('jquery'), '1.0', true );
+    wp_enqueue_script('expando-button-admin', plugins_url('expando-button-plugin/js/admin.min.js'), array('jquery'), '1.0', true );
   }
 
   function register_widget_styles_and_scripts() {
     wp_enqueue_style('expando-button-plugin', plugins_url('expando-button-plugin/css/widget.css') );
     wp_enqueue_script('expando-button-plugin',
-                      plugins_url('expando-button-plugin/js/dev/widget.js'), 
+                      plugins_url('expando-button-plugin/js/widget.min.js'), 
                       array(
                             'jquery',
                             'jquery-ui-core',

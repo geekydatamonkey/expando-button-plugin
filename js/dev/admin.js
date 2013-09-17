@@ -1,11 +1,12 @@
 /**
+* admin.js
 * Scripts for the Admin Side of the Expando Button Widget
 **/
-
-(function($, window, undefined) {
+;(function($, window, document, undefined) {
 
   /**
    * Media control frame popup.
+   * @see media-editor.js
    */
   var mediaManager = function() {
     var Attachment = wp.media.model.Attachment,
@@ -100,6 +101,6 @@
   });
 
 
-})(jQuery, window);
+})(window.jQuery, window, document);
 
 

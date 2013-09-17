@@ -101,5 +101,5 @@ This is the part that shows/hides depending on user interaction.
 
 == Changelog ==
 
-= 1.0 =
+= 1.0.1 =
 Initial Release
