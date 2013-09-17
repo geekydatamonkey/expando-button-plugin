@@ -5,7 +5,7 @@
   $instance_img_url = esc_url( $instance['img_url'] );
   $instance_more_text = esc_html( $instance['more_text']);
 
-  $is_body_empty = !($instance_img_url || $instance_more_test);
+  $is_body_empty = !($instance_img_url || $instance_more_text);
 ?>
 
 <a href="<?php echo $instance_url; ?>" class="expando-button-widget expando-button-widget-<?php echo sanitize_html_class( $instance['button_name'] ); ?> <?php 
