@@ -5,16 +5,27 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
   }
-  border: 0.25em solid #ccc;
-  padding: 0.5em 1em 1em;
+
+  padding: 0.5em;
+  border: 0.25em solid #ddd;
   display: block;
+  text-align: center;
+  text-decoration: none;
+
+  &:hover {
+    border-color: #666;
+  }
+  img {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
+  }
   .expando-button-widget-header {
     display: block;
-    //margin-bottom: 0.5em;
   }
   &.is-closed,
   &.is-empty {
-    padding-bottom: 0.5em;
     .expando-button-widget-header {
       margin: 0;
     }
@@ -23,10 +34,6 @@
     margin-top: 0.75em;
   }
   .expando-button-widget-body {
-    margin-top: 0.5em;
-  }
-  img {
-    display: block;
-    margin: 0;
+    margin-top: 0.75em;
   }
 }

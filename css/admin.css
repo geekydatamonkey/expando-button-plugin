@@ -1,9 +1,13 @@
-/* line 4, sass/admin.scss */
+/* line 3, sass/admin.scss */
+.expando-button-widget-admin img {
+  max-width: 100%;
+  margin: 0.5em 0; }
+/* line 7, sass/admin.scss */
 .expando-button-widget-admin label, .expando-button-widget-admin input, .expando-button-widget-admin textarea {
   display: block;
   width: 100%;
   max-width: 100%; }
-/* line 10, sass/admin.scss */
+/* line 13, sass/admin.scss */
 .expando-button-widget-admin .expando-button-uploader .button {
   margin: 0.5em 0;
   padding: 0.5em;

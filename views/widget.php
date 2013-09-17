@@ -1,14 +1,14 @@
 <?php
   // sanitize and cache variables
-  $instance_button_name = sanitize_text_field( $instance['button_name'] );
+  $instance_button_name = esc_html($instance['button_name'] );
   $instance_url = esc_url( $instance['url'] ); 
   $instance_img_url = esc_url( $instance['img_url'] );
-  $instance_more_text = sanitize_text_field( $instance['more_text']);
+  $instance_more_text = esc_html( $instance['more_text']);
 
   $is_body_empty = !($instance_img_url || $instance_more_test);
 ?>
 
-<a href="<?php echo esc_url( $instance['url'] ); ?>" class="expando-button-widget expando-button-widget-<?php echo sanitize_html_class( $instance['button_name'] ); ?> <?php 
+<a href="<?php echo $instance_url; ?>" class="expando-button-widget expando-button-widget-<?php echo sanitize_html_class( $instance['button_name'] ); ?> <?php 
     if ($is_body_empty) 
       echo "is-empty"; 
   ?>" target="_blank">
@@ -19,7 +19,7 @@
         echo "Button";
       } 
     ?></div><?php
-    if ($instance_img_url || $instance_more_text ) {
+    if (! $is_body_empty ) {
       ?><div class="expando-button-widget-body">
         <?php if ($instance_img_url) { ?>
           <img src="<?php echo $instance_img_url; ?>" alt="<?php echo $instance_button_name; ?>">

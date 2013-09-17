@@ -102,8 +102,8 @@
         });
     };
 
-})( window.jQuery, window, document );
+    $(document).ready(function(){
+      $('.expando-button-widget').expandoButton();
+    });
 
-$(document).ready(function(){
-  $('.expando-button-widget').expandoButton();
-});
+})( window.jQuery, window, document );

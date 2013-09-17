@@ -23,10 +23,10 @@ class ExpandoButton extends WP_Widget {
 
     parent::__construct(
         'expando-button',
-        __( 'Expando Button', 'expando-button-widget' ),
+        __( 'Expando Button', 'expando-button-plugin' ),
         array(
           'classname'     => 'expando-button',
-          'description'   => __( 'A button that shows more information such as an image and text.', 'expando-button-widget' )
+          'description'   => __( 'A button that shows more information such as an image and text.', 'expando-button-plugin' )
         )
     );
 
@@ -53,39 +53,43 @@ class ExpandoButton extends WP_Widget {
   }
 
   function update($new_instance, $old_instance) {
-
-
-
-    $old_instance['button_name'] = strip_tags(stripslashes($new_instance['button_name']));
-    $old_instance['url'] = strip_tags(stripslashes($new_instance['url']));
-    $old_instance['more_text'] = strip_tags(stripslashes($new_instance['more_text']));
-    $old_instance['img_url'] = strip_tags(stripslashes($new_instance['img_url']));
+    $old_instance['button_name'] = sanitize_text_field( $new_instance['button_name'] );
+    $old_instance['url'] = esc_url_raw( $new_instance['url'] );
+    $old_instance['more_text'] = sanitize_text_field( $new_instance['more_text'] );
+    $old_instance['img_url'] = esc_url_raw( $new_instance['img_url'] );
 
     return $old_instance;
   }
 
   function widget($args, $instance){
-
     include( plugin_dir_path(__FILE__) . 'views/widget.php');
-
   }
 
   function widget_textdomain() {
-    load_plugin_textdomain( 'expando-button-widget', false, plugin_dir_path( __FILE__ ) . '/lang/');
+    load_plugin_textdomain( 'expando-button-plugin', false, plugin_dir_path( __FILE__ ) . '/lang/');
   }
 
   function register_admin_styles_and_scripts() {
     // must be first for media js to work
     wp_enqueue_media();
-    wp_enqueue_style('expando-button-widget-admin', plugins_url('expando-button-widget/css/admin.css') );
-    wp_enqueue_script('expando-button-admin', plugins_url('expando-button-widget/js/dev/admin.js'), array('jquery'), '1.0', true );
+    wp_enqueue_style('expando-button-plugin-admin', plugins_url('expando-button-plugin/css/admin.css') );
+    wp_enqueue_script('expando-button-admin', plugins_url('expando-button-plugin/js/dev/admin.js'), array('jquery'), '1.0', true );
   }
 
   function register_widget_styles_and_scripts() {
-    wp_enqueue_style('expando-button-widget', plugins_url('expando-button-widget/css/widget.css') );
-    wp_enqueue_script('expando-button-widget', plugins_url('expando-button-widget/js/widget.min.js'), array('jquery','jquery-ui'), '1.0', true );
-    wp_enqueue_script('jquery-ui', plugins_url('exando-button-widget/js/libs/jquery-ui-1.8.18.min.js'), array('jquery'), true);
-
+    wp_enqueue_style('expando-button-plugin', plugins_url('expando-button-plugin/css/widget.css') );
+    wp_enqueue_script('expando-button-plugin',
+                      plugins_url('expando-button-plugin/js/dev/widget.js'), 
+                      array(
+                            'jquery',
+                            'jquery-ui-core',
+                            'jquery-ui-accordion',
+                            'jquery-effects-core',
+                            'jquery-effects-blind'
+                            ), 
+                      '1.0',
+                       true 
+                    );
   }
 
 }
